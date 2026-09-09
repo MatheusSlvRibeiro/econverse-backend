@@ -1,0 +1,79 @@
+{
+    "project": "econverse-backend",
+    "features": [
+        {
+            "id": "F001",
+            "title": "Listar e detalhar produtos via API",
+            "criteria": [
+                "GET /products retorna 200 com body { success: true, products: Product[] } contendo os produtos persistidos no banco (via seed)",
+                "GET /products?category=<slug> retorna só os produtos daquela categoria",
+                "GET /products/:id retorna 200 com o produto correspondente, ou 404 se o id não existir"
+            ],
+            "linked_issues": [],
+            "implemented": false,
+            "verified": false,
+            "notes": ""
+        },
+        {
+            "id": "F002",
+            "title": "Listar categorias via API",
+            "criteria": [
+                "GET /categories retorna 200 com a lista de categorias persistidas no banco"
+            ],
+            "linked_issues": [],
+            "implemented": false,
+            "verified": false,
+            "notes": ""
+        },
+        {
+            "id": "F003",
+            "title": "Documentação OpenAPI navegável",
+            "criteria": [
+                "/docs carrega a UI do Swagger sem exigir autenticação",
+                "Todos os endpoints públicos e admin aparecem documentados com seus DTOs de entrada/saída"
+            ],
+            "linked_issues": [],
+            "implemented": false,
+            "verified": false,
+            "notes": ""
+        },
+        {
+            "id": "F004",
+            "title": "Registro e login de administrador via JWT",
+            "criteria": [
+                "POST /auth/register com email/senha válidos cria um usuário com senha hasheada (nunca texto plano) e retorna 201",
+                "POST /auth/login com credenciais corretas retorna 200 e um JWT válido",
+                "POST /auth/login com credenciais incorretas retorna 401"
+            ],
+            "linked_issues": [],
+            "implemented": false,
+            "verified": false,
+            "notes": ""
+        },
+        {
+            "id": "F005",
+            "title": "CRUD de produtos e categorias protegido por autenticação",
+            "criteria": [
+                "POST/PATCH/DELETE em /products e /categories sem token retornam 401",
+                "Com token JWT válido, POST /products cria um produto que passa a aparecer em GET /products",
+                "Payload inválido (ex.: price ausente ou negativo) retorna 400 com mensagem de validação"
+            ],
+            "linked_issues": [],
+            "implemented": false,
+            "verified": false,
+            "notes": ""
+        },
+        {
+            "id": "F006",
+            "title": "Integração real com o teste-front-end",
+            "criteria": [
+                "teste-front-end com VITE_PRODUCTS_API_URL apontando para este backend renderiza a vitrine com os mesmos produtos do banco, sem erros no console",
+                "Clicar em um produto na vitrine abre o modal de detalhes com os dados corretos vindos deste backend"
+            ],
+            "linked_issues": [],
+            "implemented": false,
+            "verified": false,
+            "notes": "Depende de F001 e da mudança coordenada de schema (id/uuid) descrita em .gsd/SPEC.md."
+        }
+    ]
+}
