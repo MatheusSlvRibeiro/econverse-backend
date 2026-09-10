@@ -25,3 +25,10 @@ model Product {
   category         Category @relation(fields: [categoryId], references: [id])
   categoryId       String
 }
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
