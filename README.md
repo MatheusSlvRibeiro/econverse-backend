@@ -1,5 +1,7 @@
 # Econverse Backend
 
+Frontend deste projeto: [teste-front-end](https://github.com/MatheusSlvRibeiro/teste-front-end) — frontend e backend formam uma peça única de portfólio.
+
 API REST em NestJS que serve o catálogo de produtos consumido pela vitrine [teste-front-end](https://github.com/MatheusSlvRibeiro/teste-front-end), com autenticação JWT e CRUD administrativo de produtos/categorias.
 
 Ver [.gsd/SPEC.md](.gsd/SPEC.md) para a especificação completa (problema, escopo, critérios de sucesso) e [.gsd/ROADMAP.md](.gsd/ROADMAP.md) para o plano de entrega.
