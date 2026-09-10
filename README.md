@@ -37,15 +37,23 @@ cp .env.example .env
 
 ```bash
 npx prisma migrate dev   # cria o schema no Postgres apontado por DATABASE_URL
+npx prisma db seed       # popula o catálogo com os mesmos produtos do teste-front-end
 ```
-
-> Ainda não implementado nesta fase do projeto — ver M01/S01 em [.gsd/ROADMAP.md](.gsd/ROADMAP.md).
 
 ### Desenvolvimento
 
 ```bash
 npm run start:dev
 ```
+
+A API sobe em `http://localhost:3000` (ou a porta definida em `PORT`). Endpoints públicos disponíveis:
+
+| Endpoint | Descrição |
+|---|---|
+| `GET /products` | Lista o catálogo (`?category=<slug>` filtra por categoria) |
+| `GET /products/:id` | Detalhe de um produto (404 se não existir) |
+| `GET /categories` | Lista as categorias cadastradas |
+| `GET /docs` | Documentação OpenAPI/Swagger navegável, sem autenticação |
 
 ### Build de produção
 
